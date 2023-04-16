@@ -41,7 +41,6 @@ int main(int argc, char **argv)
         while(random_rep != 0){ //client 
             random_number = rand() % 100 + 1;
             MPI_Send(&random_number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
-            //printf("I'm the client with rank %d and the number i send is %d \n", world_rank, random_number);
             MPI_Recv(&squared_random_number,  1, MPI_INT, 0, 0, MPI_COMM_WORLD , &status);
             printf("I'm the client with rank %d and the number i receive is %d \n", world_rank, squared_random_number);
             random_rep -= 1;
